@@ -1,0 +1,19 @@
+﻿@model InterestCAlculation.Entities.Agreement
+
+<h1>Agreement id: @Model</h1>
+
+<h1>Agreement No. @Model.Id</h1>@Model.Customer.
+<div>
+    <h2>Information about person</h2>
+    <div>Name: @Model.Customer.FirstName @Model.Customer.LastName</div>
+    <div>Personal Id: @Model.Customer.PersonalId</div>
+</div>
+<div>
+    <h2>Agreement information</h2>
+    <div>Amount: @Model.Amount</div>
+    <div>Duration: @Model.AgreementDuration</div>
+    <div>Base rate: @Model.BaseRate</div>
+    <div>Base rate code: @Model.BaseRateCode</div>
+    <div>Margin rate: @Model.Margin</div>
+    <div>Interest rate: @(@Model.BaseRate +@Model.Margin)</div>
+</div>

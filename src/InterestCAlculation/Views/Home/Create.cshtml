@@ -1,0 +1,53 @@
+﻿@model InterestCAlculation.Entities.Agreement
+
+<div>
+    <h1>Create Agreement</h1>
+    <div>
+        <form method="post" asp-antiforgery="true">           
+            <div>
+                <label asp-for="Customer.FirstName"></label>
+                <input asp-for="Customer.FirstName" />
+                <span asp-validation-for="Customer.FirstName"></span>
+            </div>
+            <div>
+                <label asp-for="Customer.LastName"></label>
+                <input asp-for="Customer.LastName" />
+                <span asp-validation-for="Customer.LastName"></span>
+            </div>
+            <div>
+                <label asp-for="Customer.PersonalId"></label>
+                <input asp-for="Customer.PersonalId" />
+                <span asp-validation-for="Customer.PersonalId"></span>
+            </div>
+            <div>
+                <label asp-for="Amount"></label>
+                <input asp-for="Amount" />
+                <span asp-validation-for="Amount"></span>
+            </div>
+            <div>
+                <label asp-for="AgreementDuration"></label>
+                <input asp-for="AgreementDuration" />
+                <span asp-validation-for="AgreementDuration"></span>
+            </div>
+            <div>
+                <label asp-for="Margin"></label>
+                <input asp-for="Margin" />
+                <span asp-validation-for="Margin"></span>
+            </div>
+            <div>
+                <label asp-for="BaseRateCode"></label>
+                <select asp-for="BaseRateCode" asp-items="@Html.GetEnumSelectList(typeof(InterestCAlculation.Entities.BaseRateCode))"></select>
+                <span asp-validation-for="BaseRateCode"></span>
+            </div>
+            
+            <div>
+                <input type="submit" value="Save!" />
+            </div>
+
+        </form>
+
+        @*palyginti fu forma kur Create view ten su html helper padaryta*@
+
+
+    </div>
+</div>
