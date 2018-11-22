@@ -73,9 +73,10 @@ namespace InterestCAlculation.Controllers
             return View();
         }
 
-        public IActionResult AgreementDetails(int agreementId)
+        [HttpGet("{id}")]
+        public IActionResult AgreementDetails(int Id)
         {
-            var agreement = _customerData.GetAllAgreements().Where(a => a.Id == agreementId);
+            var agreement = _customerData.GetAllAgreements().FirstOrDefault(a => a.Id == Id);
 
             return View(agreement);
         }

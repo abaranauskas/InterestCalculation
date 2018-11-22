@@ -1,4 +1,5 @@
 ﻿using InterestCAlculation.Entities;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,12 +34,13 @@ namespace InterestCAlculation.Service
 
         public IEnumerable<Customer> GetAllCustomers()
         {
-            return _context.Customers.ToList();
+            return _context.Customers.Include(a => a.Agreements).ToList();
         }
 
         public IEnumerable<Agreement> GetAllAgreements()
         {
-            return _context.Agreements.ToList();
+            return _context.Agreements.
+                Include(a=>a.Customer).ToList();
         }
 
         public Customer GetById(int personalId)

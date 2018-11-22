@@ -33,7 +33,13 @@ namespace InterestCAlculation
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(opt =>
+                {
+                    opt.SerializerSettings.ReferenceLoopHandling =
+                        Newtonsoft.Json.ReferenceLoopHandling.Ignore;
+                });  //regalongas addjsonoption nes rodytu ti viena is listo kur entity yra
+
             services.AddTransient<IBaseRateRepository, BaseRateRepository>();
 
             services.AddScoped<ICustomerData, SqlCustomerData>();
